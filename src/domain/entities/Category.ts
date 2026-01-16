@@ -1,0 +1,6 @@
+export interface Category {
+    id: number
+    name: string
+    emoji: string
+    type: string
+}
