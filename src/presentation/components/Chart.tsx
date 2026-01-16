@@ -40,7 +40,7 @@ export default function ExpenseChart({ expenses, isDark }: ChartProps) {
   }, [expenses, isDark])
 
   return (
-    <div className={`rounded-xl p-6 border ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
+    <div className={`shadow-xl bg-white/5 backdrop-blur-s rounded-3xl p-6 border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
       <h2 className="text-xl font-bold mb-4">Gastos por Categoría (Este Mes)</h2>
       <div style={{ position: 'relative', height: '300px' }}>
         {Object.keys(chartData.labels).length > 0 ? (

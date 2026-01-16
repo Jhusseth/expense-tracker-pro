@@ -336,7 +336,7 @@ export class GoogleSheetsService implements IExpenseService {
       const sheetId = this.getSheetId(sheetName)
 
       const response = await fetch(
-        `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/batchUpdate`,
+        `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}:batchUpdate`,
         {
           method: 'POST',
           headers: {
@@ -350,8 +350,8 @@ export class GoogleSheetsService implements IExpenseService {
                   range: {
                     sheetId: sheetId,
                     dimension: 'ROWS',
-                    startIndex: rowIndex - 1,
-                    endIndex: rowIndex,
+                    startIndex: rowIndex,
+                    endIndex: rowIndex + 1,
                   },
                 },
               },

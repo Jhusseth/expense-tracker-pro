@@ -28,7 +28,7 @@ export default function TransactionList({
   }
 
   return (
-    <div className={`rounded-xl p-6 border ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
+    <div className={`shadow-xl bg-white/5 backdrop-blur-s rounded-3xl p-6 border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">{title}</h2>
         <input

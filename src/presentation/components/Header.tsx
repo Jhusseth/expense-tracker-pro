@@ -14,27 +14,33 @@ export default function Header({
   logout 
 }: HeaderProps) {
   return (
-    <header className={`sticky top-0 z-50 ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-b backdrop-blur`}>
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <header className={`sticky top-0 z-50 ${isDark ? 'dark bg-gradient-to-br from-gray-800 via-gray-900/20 to-gray-900 border-gray-700 text-gray-100' : 'bg-white border-gray-200 text-gray-900'} border-b backdrop-blur`}>
+      <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
         <div className="flex items-center space-x-3">
-          <div className={`p-2 rounded-lg ${isDark ? 'bg-purple-900' : 'bg-purple-100'}`}>
-            <span className="text-2xl">💰</span>
+          <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-2xl shadow-lg flex items-center justify-center">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
-          <div>
-            <h1 className="text-2xl font-bold">Expense Tracker Pro</h1>
-            <p className="text-xs opacity-60">Gestión de gastos inteligente</p>
-          </div>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
+            Expenses Tracker Pro
+          </h1>
         </div>
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-6">
           <button
-            onClick={() => {
-              setIsDark(!isDark)
-              localStorage.setItem('theme', isDark ? 'light' : 'dark')
-            }}
-            className={`p-3 rounded-lg transition ${isDark ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'}`}
-            title={isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+            onClick={() => setIsDark(!isDark)}
+            className="p-2 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
+            title="Cambiar tema"
           >
-            {isDark ? '☀️' : '🌙'}
+            {isDark ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            )}
           </button>
           {!isAuthenticated ? (
             <button

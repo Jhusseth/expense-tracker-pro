@@ -37,7 +37,7 @@ export default function ExpenseForm({ onAddExpense, isDark, categories }: Expens
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`rounded-xl p-6 border ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
+    <form onSubmit={handleSubmit} className={`p-6 border shadow-xl bg-white/5 backdrop-blur-s rounded-3xl ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
       <h2 className="text-xl font-bold mb-6">Registrar Gasto</h2>
 
       <div className="space-y-4">
