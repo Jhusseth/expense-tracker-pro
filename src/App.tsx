@@ -39,10 +39,11 @@ function AppContent() {
 
   const handleSearch = (query: string) => {
     if (!query) {
-      setTrxExpenses(trxExpenses)
+      setTrxExpenses(expenses.filter(ex => !ex.isFixed))
       return
     }
-    setTrxExpenses(trxExpenses.filter(e =>
+    setTrxExpenses(expenses.filter(e =>
+      !e.isFixed &&
       e.description?.toLowerCase().includes(query.toLowerCase()) ||
       e.category.toLowerCase().includes(query.toLowerCase())
     ))
@@ -50,10 +51,11 @@ function AppContent() {
 
   const handleSearchFixed = (query: string) => {
     if (!query) {
-      setExpensesFixed(expensesFixed)
+      setExpensesFixed(expenses.filter(ex => ex.isFixed))
       return
     }
-    setExpensesFixed(expensesFixed.filter(e =>
+    setExpensesFixed(expenses.filter(e =>
+      e.isFixed &&
       e.description?.toLowerCase().includes(query.toLowerCase()) ||
       e.category.toLowerCase().includes(query.toLowerCase())
     ))
