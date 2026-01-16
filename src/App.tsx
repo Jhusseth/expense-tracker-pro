@@ -39,10 +39,10 @@ function AppContent() {
 
   const handleSearch = (query: string) => {
     if (!query) {
-      setTrxExpenses(expenses)
+      setTrxExpenses(trxExpenses)
       return
     }
-    setTrxExpenses(expenses.filter(e =>
+    setTrxExpenses(trxExpenses.filter(e =>
       e.description?.toLowerCase().includes(query.toLowerCase()) ||
       e.category.toLowerCase().includes(query.toLowerCase())
     ))
@@ -50,10 +50,10 @@ function AppContent() {
 
   const handleSearchFixed = (query: string) => {
     if (!query) {
-      setExpensesFixed(expenses)
+      setExpensesFixed(expensesFixed)
       return
     }
-    setExpensesFixed(expenses.filter(e =>
+    setExpensesFixed(expensesFixed.filter(e =>
       e.description?.toLowerCase().includes(query.toLowerCase()) ||
       e.category.toLowerCase().includes(query.toLowerCase())
     ))
