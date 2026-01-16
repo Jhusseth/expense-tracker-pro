@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { Doughnut } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Expense } from '@/domain/entities/Expense'
+import { parseDate } from '@/utils/Dates'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -11,14 +12,14 @@ interface ChartProps {
 }
 
 export default function ExpenseChart({ expenses, isDark }: ChartProps) {
+  
   const chartData = useMemo(() => {
     const breakdown: Record<string, number> = {}
     const currentMonth = new Date().getMonth()
     const currentYear = new Date().getFullYear()
-
     expenses
       .filter(e => {
-        const date = new Date(e.date)
+        const date = parseDate(e.date)
         return e.type === 'expense' && date.getMonth() === currentMonth && date.getFullYear() === currentYear
       })
       .forEach(e => {

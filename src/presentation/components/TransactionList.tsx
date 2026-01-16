@@ -29,7 +29,7 @@ export default function TransactionList({
 
   return (
     <div className={`shadow-xl bg-white/5 backdrop-blur-s rounded-3xl p-6 border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0 mb-6">
         <h2 className="text-xl font-bold">{title}</h2>
         <input
           type="text"

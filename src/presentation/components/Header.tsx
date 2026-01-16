@@ -16,16 +16,23 @@ export default function Header({
   return (
     <header className={`sticky top-0 z-50 ${isDark ? 'dark bg-gradient-to-br from-gray-800 via-gray-900/20 to-gray-900 border-gray-700 text-gray-100' : 'bg-white border-gray-200 text-gray-900'} border-b backdrop-blur`}>
       <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-2xl shadow-lg flex items-center justify-center">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <div className="flex items-center space-x-2 sm:space-x-3 p-2 -m-2 sm:p-0 sm:-m-0">
+          <div className="flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 bg-gradient-to-br from-emerald-500 via-emerald-600 to-blue-600 rounded-2xl shadow-xl flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:scale-105">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
-            Expenses Tracker Pro
-          </h1>
+          
+          <div className="flex flex-col">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black leading-tight bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">
+              Expenses Tracker
+            </h1>
+            <span className="text-sm sm:text-base md:text-lg font-bold text-emerald-400/90 sm:text-transparent sm:bg-gradient-to-r sm:from-emerald-400 sm:to-teal-400 sm:bg-clip-text">
+              Pro
+            </span>
+          </div>
         </div>
+
         <div className="flex items-center space-x-6">
           <button
             onClick={() => setIsDark(!isDark)}

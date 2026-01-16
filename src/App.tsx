@@ -9,11 +9,12 @@ import Landing from './presentation/components/Landing'
 import { useExpenses } from '@presentation/hooks/useExpenses'
 import { expenseService, persistenceType } from '@domain/config'
 import { Expense } from '@/domain/entities/Expense'
+import { parseDate } from './utils/Dates'
 
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || ''
 
 function AppContent() {
-  const { isAuthenticated, login, logout, expenses, categories, addExpense, deleteExpense} = useExpenses(expenseService, persistenceType)
+  const { isAuthenticated, login, logout, expenses, categories, addExpense, deleteExpense, exportToExcel} = useExpenses(expenseService, persistenceType)
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('expenses-tracker-dark-mode')
@@ -69,16 +70,6 @@ function AppContent() {
     avgDaily: 0,
   }
 
-  const parseDate = (dateString: string): Date => {
-    if (dateString.includes('/')) {
-      const [day, month, year] = dateString.split('/').map(Number)
-      const date = new Date(year, month - 1, day)
-      date.setHours(0, 0, 0, 0) 
-      return date
-    }
-    return new Date(dateString)
-  }
-
   const today = new Date()
   today.setHours(0, 0, 0, 0)
 
@@ -112,7 +103,7 @@ function AppContent() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <ExpenseForm onAddExpense={addExpense} isDark={isDark} categories={categories} />
               <div className="lg:col-span-2 space-y-6">
-                <ExpenseChart expenses={expenses} isDark={isDark} />
+                <ExpenseChart expenses={trxExpenses} isDark={isDark} />
                 <TransactionList
                   title = 'Gastos Fijos'
                   expenses={expensesFixed}
@@ -133,6 +124,22 @@ function AppContent() {
             </div>
           </main>
         : <Landing isDark={isDark}/>}
+      {isAuthenticated && (
+        <div className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 lg:bottom-6 lg:right-6 z-50 group">
+          <button
+            onClick={exportToExcel}
+            className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-emerald-500 via-emerald-600 to-blue-600 hover:from-emerald-600 hover:to-blue-700 shadow-2xl hover:shadow-3xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95 backdrop-blur-sm border-4 border-white hover:border-white active:border-white"
+            title="Descargar Reporte PDF/Excel"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 12l2 2 2-2m-7 4h12" />
+            </svg>
+          </button>
+          <div className="absolute -top-10 sm:-top-12 right-0 bg-gray-900/95 dark:bg-gray-900/95 backdrop-blur-md text-white px-3 py-2 rounded-xl text-xs shadow-2xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border border-gray-700/50">
+            📊 Descargar Reporte
+          </div>
+        </div>
+      )}
     </div>
   )
 }
