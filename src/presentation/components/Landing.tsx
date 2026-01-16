@@ -119,7 +119,7 @@ const Landing = ({ isDark }: LandingProps) => {
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            <div className="group p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-4">
+            <div className="group p-8 bg-white/5 border-white/10 shadow-xl backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-4">
               <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 shadow-lg hover:shadow-emerald-500/50">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -129,7 +129,7 @@ const Landing = ({ isDark }: LandingProps) => {
               <p className="text-gray-400 leading-relaxed">Categoriza automáticamente todos tus gastos e ingresos en tiempo real.</p>
             </div>
 
-            <div className="group p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-4">
+            <div className="group p-8 bg-white/5 border-white/10 shadow-xl backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-4">
               <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 shadow-lg hover:shadow-blue-500/50">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -139,7 +139,7 @@ const Landing = ({ isDark }: LandingProps) => {
               <p className="text-gray-400 leading-relaxed">Predicciones inteligentes que te ayudan a ahorrar más cada mes.</p>
             </div>
 
-            <div className="group p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-4">
+            <div className="group p-8 bg-white/5 border-white/10 shadow-xl backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-4">
               <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 shadow-lg hover:shadow-purple-500/50">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -149,7 +149,7 @@ const Landing = ({ isDark }: LandingProps) => {
               <p className="text-gray-400 leading-relaxed">Gráficos avanzados y dashboards personalizables en tiempo real.</p>
             </div>
 
-            <div className="group p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-4">
+            <div className="group p-8 bg-white/5 border-white/10 shadow-xl backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-4">
               <div className="w-20 h-20 bg-gradient-to-r from-pink-500 to-rose-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 shadow-lg hover:shadow-pink-500/50">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -162,7 +162,7 @@ const Landing = ({ isDark }: LandingProps) => {
         </div>
       </main>
 
-      <footer className={`border-t ${isDark ? 'border-white/10': 'border-gray-200 border-b backdrop-blur'} mt-32 pt-12 pb-8`}>
+      <footer className={`border-t ${isDark ? 'border-white/10': 'border-gray-200 border-b backdrop-blur'} pt-12 pb-8`}>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-lg font-semibold mb-4 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
             ¿Listo para transformar tus finanzas?

@@ -36,7 +36,7 @@ jobs:
       env:
         VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
         VITE_GOOGLE_SPREADSHEET_ID: ${{ secrets.VITE_GOOGLE_SPREADSHEET_ID }}
-        VITE_PERSISTENCE_TYPE: ${{ env.VITE_PERSISTENCE_TYPE }}
+        VITE_PERSISTENCE_TYPE: ${{ vars.VITE_PERSISTENCE_TYPE }}
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
